@@ -1,0 +1,61 @@
+
+<template>
+    <div class="container">
+      <div id="btn-return" class="d-flex justify-content-end pt-1 mt-3">
+        <div class="btn-home" role="group">
+            <button type="button" class="btn btn-outline-main bg-main text-white" @click="mtdBackCampus">
+                <i class="fas fa-recycle"></i> Cambiar de Sede
+            </button>
+        </div>
+    </div>
+    <div class="row " id="div_conte2">
+      <div id="div_conte" class="col-md-10 mx-auto ">
+          <div  class="bg-secondary text-white bg-opacity-10">
+              <div class="text-center py-4 px-5 " id="scroll-div">
+                  <div class="row ">
+                      <button class=" div-button col m-2 p-2 text-white bg-main" @click="changePage('especialidad')">
+                          ESPECIALIDAD
+                      </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    name: 'HomeComponent',
+    props: {
+    },
+    components: {
+    },
+    data () {
+      return {
+        page: null,
+        swal:'TITULO POR  PROPS',
+      }
+    },
+    created () {
+      
+    },
+    methods: {
+      mtdGetStyle:function(option){
+        if (option == this.page) return 'background: #900052';
+        return '';
+      },
+      mtdGetStyleSpan:function(option){
+        if (option == this.page) return 'color:white';
+        return '';
+      },
+      mtdSendOption: function(page){
+        this.page=page;
+        this.$emit('mtdChangePage',this.page)
+      },
+      mtdBackCampus: function () {
+            this.$emit("mtdBackCampus");
+        },
+    },
+  }
+  </script>
